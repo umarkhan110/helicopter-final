@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import { NextPage } from "next";
+import { FlightData } from "../../types"; 
+import { MantineProvider } from "@mantine/core";
 
-import { Checkbox, MantineProvider } from "@mantine/core";
-
-import HelicopterData from "../../data_2019.json";
+import HelicopterDataJson  from "../../data_2019.json";
 
 interface Position {
   latitude: number;
@@ -26,11 +26,13 @@ interface Flight {
   updated: string;
 }
 
-interface HelicopterData {
-  flights: Flight[];
-}
+// interface HelicopterData {
+//   flights: Flight[];
+// }
 
 const Home: NextPage = () => {
+  const HelicopterData: FlightData = HelicopterDataJson;
+  const flights = HelicopterData.flights;
   const shouldfilteropeninit =
     typeof window != "undefined" ? window.innerWidth >= 640 : false;
   const divRef = useRef<HTMLDivElement | null>(null);
