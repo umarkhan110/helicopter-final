@@ -4,7 +4,7 @@ import { NextPage } from "next";
 
 import { Checkbox, MantineProvider } from "@mantine/core";
 
-import HelicopterData from "../../data_2019.json";
+import HelicopterData from "../../json/data.json";
 
 interface Position {
   latitude: number;
